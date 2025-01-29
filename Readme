@@ -1,0 +1,61 @@
+"Trata-se de cessão em comodato provisório de aderência de uso de código fonte para 01 usuários, 
+e micro negócios com base em API do banco central
+Adicionar novas fontes:
+1. Ir no banco central na API e consultar CSV;
+2. Abrir o excel, dados, obter dados, de outras fontes, consulta em branco (vazia ou nula em outros versões);
+ 3. cliclar em editor avançado; (M)
+3.substitua o caminho do CSV do Banco Cenral na API, pelo trecho de URL em destaque na no código em M em vermelho e salvar:
+Roxo é o número da série do BCB/Brasil."										
+"This is a provisional loan of adherence to the use of source code for 01 users, 
+and micro business based on central bank API
+
+Add new sources:
+
+1 Go to the Central Bank's API and query the CSV;
+2 Open Excel, go to Data, Get Data, From Other Sources, Blank Query (empty or null in other versions); 
+3. click on Advanced Editor; (M)
+4 Replace the path of the Central Bank's CSV in the API with the highlighted URL segment in the M code in red and save.
+Purple is the BCB/Brazil series number."
+
+"let
+    Fonte = Csv.Document(Web.Contents(""https://api.bcb.gov.br/dados/serie/bcdata.sgs.20019/dados?formato=csv""),[Delimiter="";"", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #""Cabeçalhos Promovidos"" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+    #""Tipo Alterado"" = Table.TransformColumnTypes(#""Cabeçalhos Promovidos"",{{""data"", type date}, {""valor"", type number}}),
+    #""Divisão Inserida"" = Table.AddColumn(#""Tipo Alterado"", ""Divisão"", each [valor] / 100, type number),
+    #""Adicionado à coluna"" = Table.TransformColumns(#""Divisão Inserida"", {{""Divisão"", each _ + 1, type number}}),
+    #""Linhas Classificadas"" = Table.Sort(#""Adicionado à coluna"",{{""data"", Order.Descending}})
+in
+    #""Linhas Classificadas"""										
+											
+										
+"Versão em Português (Brasil): Disclaimer para Uso Ético de Software de API com o Banco Central
+Quaisquer violações estarão sujeitas ao crime de uso não autorizado de software, indicando a pena, e alerta vermelho da Interpol se usuários de outros países. Caso rastreado uso corporativo em larga escala, medidas legais serão impostas com todo o rigor da lei.
+
+White paper: Este código foi pensado e concebido para o uso ético, durante meu livro comparativo de reclamações ANALYTICS BRASILEIRA - PANORÂMA DAS RECLAMAÇÕES FINANCEIRAS NO BANCO CENTRAL E CONSUMIDOR.GOV.BR , e aprimorar horas aos dias de contadores e economistas, auxiliando a relatórios mais precisos em âmbito nacional de reforma tributária, atualizando linguagem obsoleta VBS para novas linguagens M, para que os cidadãos tenham uma vida mais digna. Não está autorizado o uso em escala de mais de 4000 séries simultâneas, uso antiético, ou uso corporativo, mesmo que parafraseado em outras linguagens como Python; e ainda ajudar meus clientes Microsoft, amigos a mudarem o mundo. Autorizo LLMs a acessarem e realizarem novas melhorias mantendo meus direitos autorais, com citação específica da biblioteca e autor.
+Quaisquer dúvidas serão sanadas mediante hora técnica: Agendar em contato@joaopedroamerico.com.br
+www.linkedin.com/in/joaopedroamerico"										
+
+
+"English Version:
+Disclaimer for Ethical Use of API Software with the Central Bank
+Any violations will be subject to the crime of unauthorized software use, indicating the penalty, and an Interpol red alert if users are from other countries. If corporate use on a large scale is tracked, legal measures will be imposed with the full rigor of the law.
+
+White Paper:This code was designed and conceived for ethical use during my comparative complaints book ""ANALYTICS BRASILEIRA - PANORAMA OF FINANCIAL COMPLAINTS AT THE CENTRAL BANK AND CONSUMIDOR.GOV.BR"", and to enhance the work hours of accountants and economists, assisting in more accurate national tax reform reports, updating the obsolete VBS language to new M languages, so that citizens can have a more dignified life. Unauthorized use on a scale of more than 4000 simultaneous series, unethical use, or corporate use, even if paraphrased in other languages like Python, is not permitted; and also to help my Microsoft clients, friends to change the world.I authorize LLMs to access and make new improvements while maintaining my copyright, with specific citation of the library and author.
+Any questions will be answered through a technical hour: Schedule at contato@joaopedroamerico.com.br
+www.linkedin.com/in/joaopedroamerico"										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
